@@ -1,94 +1,108 @@
 #include <stdio.h>
 
 int main() {
-    char Codigo[4], Cidade[50]; //Definir Variavel do tipo caracteres
-    char Estado;                //Definir Variaiavel do tipo caracteres
-    int  Populacao, N_Pontos_Turisticos;  //Definir Variavel do tipo inteiro
-    float Area, PIB;                      //Defini Variavel do tipo flutuante
-
-    printf("Desafio Super Trunfo - Paises\n");
-    printf("Cadastro de Cartas\n\n");
+    char Codigo[4], Cidade1[50], Cidade2[50]; //Definir Variavel do tipo caracteres
+    char Estado1[2], Estado2[2];                //Definir Variaiavel do tipo caracteres
+    unsigned long int  Populacao1, Populacao2, N_Pontos_Turisticos1, N_Pontos_Turisticos2, Resultado1, Resultado2;  //Definir Variavel do tipo inteiro
+    float Densidade_Populacional1, PIB_per_Capita1, Densidade_Populacional2, PIB_per_Capita2; //Defini Variavel do tipo flutuante
+    float Area1,Area2, PIB1, PIB2;
+    float Super_Poder_carta_1, Super_Poder_carta_2;
+                          
+    printf("Desafio Super Trunfo - Paises\n\n");
+    printf("Cadastre a primeira Carta\n");
+    printf("**Obs: Nao utilize ponto ou virgula**\n");
     
-    printf("Digite a inicial do Estado, de (A-H):\n"); // Solicitação de entrada de dados para o usuario
-    scanf("%c", &Estado); // captura dos dados de entrada pelo usuario
+    printf("Digite o Estado - (UF): "); // Solicitação de entrada de dados para o usuario
+    scanf("%s", &Estado1); // captura dos dados de entrada pelo usuario
 
-    printf("O Codigo da carta (01 a 04):\n"); 
+    printf("Codigo para a carta (01 a 04): ");
+    scanf("%s", &Codigo);
+    
+    printf("Cidade: ");
+    scanf("%s", &Cidade1);
+
+    printf("População: ");
+    scanf("%u", &Populacao1);
+
+    printf("Digite o numero de Pontos Turisticos: ");
+    scanf("%d", &N_Pontos_Turisticos1);
+
+    printf("Digite a Area em KM²: ");
+    scanf("%f", &Area1);
+
+    printf("Digite o PIB: ");
+    scanf("%f", &PIB1);
+
+    printf("\nCarta 1 cadastarada com sucesso!\n"); //Imprimindo dados cadastrados
+    printf("Estado: %s\n", Estado1);
+    printf("Codigo da carta é: %s%s\n", Estado1, Codigo);
+    printf("Cidade: %s\n", Cidade1);
+    printf("Populacao: %u\n", Populacao1);
+    printf("Pontos Turisticos: %d\n", N_Pontos_Turisticos1);
+    printf("Area em KM²: %.0f\n", Area1);
+    printf("PIB em Bilhões: %.0f \n\n", PIB1);
+
+    printf("Cadastre uma nova Carta!\n"); //Solicitando novos dados de entrada
+
+    printf("Digite o Estado (UF): "); //inicio do novo cadastro
+    scanf(" %s", &Estado2);  // Captura dos dados de entrada cadastrados pelo usuario
+
+    printf("Codigo para carta (01 a 04): ");
     scanf("%s", &Codigo);
 
-    printf("A Cidade:\n");
-    scanf("%s", &Cidade);
+    printf("Cidade: ");
+    scanf("%s", &Cidade2);
 
-    printf("A População:\n");
-    scanf("%d", &Populacao);
+    printf("População: ");
+    scanf("%u", &Populacao2);
 
-    printf("Digite o numero de Pontos Turisticos:\n");
-    scanf("%d", &N_Pontos_Turisticos);
+    printf("Digite o numero de Pontos Turisticos: ");
+    scanf("%d", &N_Pontos_Turisticos2);
 
-    printf("Digite a Area:\n");
-    scanf("%f", &Area);
+    printf("Digite a Area em KM²: ");
+    scanf("%f", &Area2);
 
-    printf("Digite o PIB:\n");
-    scanf("%f", &PIB);
+    printf("Digite o PIB: ");
+    scanf("%f", &PIB2);
 
-    printf("Carta 1 cadastarada com sucesso!\n"); //Imprimindo dados cadastrados
+    printf("\nCarta 2 cadastarada com sucesso!\n"); //Imprimindo dados cadastrados
+    printf("Estado: %s\n", Estado2);
+    printf("Codigo da carta é: %s%s\n", Estado2, Codigo);
+    printf("Cidade: %s\n", Cidade2);
+    printf("Populacao: %u\n", Populacao2);
+    printf("Pontos Turisticos: %d\n", N_Pontos_Turisticos2);
+    printf("Area em KM²: %.0f\n", Area2);
+    printf("PIB em Bilhões: %.0f \n\n", PIB2);
 
-    printf("Estado: %c\n", Estado);
+    //Calculando densidade populacional, renda percapta e super poder 
+    Densidade_Populacional1 = (float)Populacao1 / Area1;
+    printf("Dendidade populacional Carta 1: %.2f habitantes/km²\n", Densidade_Populacional1);
 
-    printf("Codigo da carta é: %c%s\n", Estado, Codigo);
+    PIB_per_Capita1 = PIB1 / (float)Populacao1;
+    printf("Renda per capta é: R$%.2f\n\n", PIB_per_Capita1);
 
-    printf("Cidade: %s\n", Cidade);
+    Densidade_Populacional2 = (float)Populacao2 / Area2;
+    printf("Dendidade populacional Carta 2: %.2f habitantes/km²\n", Densidade_Populacional2);
 
-    printf("Populacao: %d\n", Populacao);
+    PIB_per_Capita2 = PIB2 / (float)Populacao2;
+    printf("Renda per capta é: R$%.2f\n\n", PIB_per_Capita2);
 
-    printf("Pontos Turisticos: %d\n", N_Pontos_Turisticos);
+    Super_Poder_carta_1 = (PIB1 + (float)Populacao1 + Area1 + (float)N_Pontos_Turisticos1 + PIB_per_Capita1 + (1 / Densidade_Populacional1));
+    printf("Super poder carta 1: %.0f\n", Super_Poder_carta_1);
 
-    printf("Area: %f KM²\n", Area);
+    Super_Poder_carta_2 = (PIB2 + (float)Populacao2 + Area2 + (float)N_Pontos_Turisticos2 + PIB_per_Capita2 + (1 / Densidade_Populacional2));
+    printf("Super poder carta 2 : %.0f\n\n", Super_Poder_carta_2);
 
-    printf("PIB: %f bilhoes de reais\n\n", PIB);
+    printf("Comparar cartas!\n");
+    printf("Carta 1 vs Carta 2 (Populacão): %d\n", Populacao1 > Populacao2);
+    printf("Carta 1 vs Carta 2 (Numeros de pontos turisticos): %d\n", N_Pontos_Turisticos1 > N_Pontos_Turisticos2);
+    printf("Carta 1 vs Carta 2 (Area): %d\n", Area1 > Area2);
+    printf("Carta 1 vs Carta 2 (PIB): %d\n", PIB1 > PIB2);
+    printf("Carta 1 vs Carta 2 (Densidade Populacional): %d\n", Densidade_Populacional1 > Densidade_Populacional2);
+    printf("Carta 1 vs Carta 2 (Per Capta): %d\n", PIB_per_Capita1 > PIB_per_Capita2);
+    printf("Carta 1 vs Carta 2 (Super Poder): %d\n", Super_Poder_carta_1 > Super_Poder_carta_2);
 
-    printf("Cadastre uma nova Carta\n\n"); //Solicitando novos dados de entrada
-
-    printf(" Digite a inicial do Estado, de (A-H):\n"); //inicio do novo cadastro
-    scanf(" %c", &Estado);  // Captura dos dados de entrada cadastrados pelo usuario
-
-    printf("O Codigo da carta (01 a 04):\n");
-    scanf("%s", &Codigo);
-
-    printf("A Cidade:\n");
-    scanf("%s", &Cidade);
-
-    printf("A População:\n");
-    scanf("%d", &Populacao);
-
-    printf("Digite o numero de Pontos Turisticos:\n");
-    scanf("%d", &N_Pontos_Turisticos);
-
-    printf("Digite a Area:\n");
-    scanf("%f", &Area);
-
-    printf("Digite o PIB:\n");
-    scanf("%f", &PIB);
-
-    printf("Carta 2 cadastarada com sucesso!\n"); // Imprimindo novos dados cadastrados
-
-    printf("Estado: %c\n", Estado);
-
-    printf("Codigo da carta é: %c%s\n", Estado, Codigo);
-
-    printf("Cidade: %s\n", Cidade);
-
-    printf("Populacao: %d\n", Populacao);
-
-    printf("Pontos Turisticos: %d\n", N_Pontos_Turisticos);
-
-    printf("Area: %f KM²\n", Area);
-
-    printf("PIB: %f bilhoes de reais\n", PIB);
-
+    return 0;  
     
 
-
-
-    
-    return 0;
 }
