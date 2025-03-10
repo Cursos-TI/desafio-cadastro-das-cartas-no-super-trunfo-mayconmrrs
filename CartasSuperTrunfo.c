@@ -65,7 +65,7 @@ int main() {
     printf("Digite o PIB: ");
     scanf("%f", &PIB2);
 
-    printf("\nCarta 2 cadastarada com sucesso!\n"); //Imprimindo dados cadastrados
+    printf("\nCarta 0 cadastarada com sucesso!\n"); //Imprimindo dados cadastrados
     printf("Estado: %s\n", Estado2);
     printf("Codigo da carta é: %s%s\n", Estado2, Codigo);
     printf("Cidade: %s\n", Cidade2);
@@ -94,13 +94,13 @@ int main() {
     printf("Super poder carta 2 : %.0f\n\n", Super_Poder_carta_2);
 
     printf("Comparar cartas!\n");
-    printf("Carta 1 vs Carta 2 (Populacão): %d\n", Populacao1 > Populacao2);
-    printf("Carta 1 vs Carta 2 (Numeros de pontos turisticos): %d\n", N_Pontos_Turisticos1 > N_Pontos_Turisticos2);
-    printf("Carta 1 vs Carta 2 (Area): %d\n", Area1 > Area2);
-    printf("Carta 1 vs Carta 2 (PIB): %d\n", PIB1 > PIB2);
-    printf("Carta 1 vs Carta 2 (Densidade Populacional): %d\n", Densidade_Populacional1 > Densidade_Populacional2);
-    printf("Carta 1 vs Carta 2 (Per Capta): %d\n", PIB_per_Capita1 > PIB_per_Capita2);
-    printf("Carta 1 vs Carta 2 (Super Poder): %d\n", Super_Poder_carta_1 > Super_Poder_carta_2);
+    printf("Carta 1 vs Carta 0 (Populacão): %d\n", Populacao1 > Populacao2);
+    printf("Carta 1 vs Carta 0 (Numeros de pontos turisticos): %d\n", N_Pontos_Turisticos1 > N_Pontos_Turisticos2);
+    printf("Carta 1 vs Carta 0 (Area): %d\n", Area1 > Area2);
+    printf("Carta 1 vs Carta 0 (PIB): %d\n", PIB1 > PIB2);
+    printf("Carta 1 vs Carta 0 (Densidade Populacional): %d\n", Densidade_Populacional1 < Densidade_Populacional2);
+    printf("Carta 1 vs Carta 0 (Per Capta): %d\n", PIB_per_Capita1 > PIB_per_Capita2);
+    printf("Carta 1 vs Carta 0 (Super Poder): %d\n", Super_Poder_carta_1 > Super_Poder_carta_2);
 
     return 0;  
     
